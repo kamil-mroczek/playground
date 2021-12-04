@@ -9,7 +9,7 @@ services:
       - ../src:/src
       - ./nginx/playground.conf:/etc/nginx/conf.d/playground.conf
       - "run:/run"
-    links:
+    depends_on:
       - fpm
   fpm:
     container_name: fpm
@@ -18,5 +18,14 @@ services:
       - ../src:/src
       - "./fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-docker.conf"
       - "run:/run"
+    depends_on:
+      - composer
+  composer:
+    container_name: composer
+    image: composer:2.1
+    volumes:
+      - ../src:/src
+    working_dir: /src
+    command: install
 volumes:
   run:
