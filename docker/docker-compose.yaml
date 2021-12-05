@@ -27,5 +27,32 @@ services:
       - ../src:/src
     working_dir: /src
     command: install
+
+  cli:
+    container_name: cli
+    image: php:8.1-cli-alpine
+    volumes:
+      - ../src:/src
+    depends_on:
+      - composer
+    command: php -v
+
+  database:
+    container_name: database
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_DB: 'currency_exchange'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_USER: 'user'
+    volumes:
+      - data:/var/lib/postgresql/data/pgdata
+
+    depends_on:
+      - fpm
+
+
+
 volumes:
   run:
+  data:
+    
