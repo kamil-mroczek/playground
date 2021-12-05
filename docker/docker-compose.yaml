@@ -32,16 +32,6 @@ services:
         working_dir: /src
         command: install
 
-    cli:
-        container_name: cli
-        image: php:8.1-cli-alpine
-        volumes:
-            - ../src:/src
-        depends_on:
-            - composer
-            - database
-        command: php -v
-
     database:
         container_name: database
         image: postgres:14.1-alpine
@@ -54,6 +44,20 @@ services:
             PGDATA: '/data'
         volumes:
             - data:/data
+
+# @todo Needs some work to make it running
+#    cli:
+#        container_name: cli
+#        image: php:8.1-cli-alpine
+#        volumes:
+#            - ../src:/src
+#        depends_on:
+#            - composer
+#            - database
+#        command: >
+#            sh -c "set -ex apk --no-cache add postgresql-dev &&
+#                   /usr/local/bin/docker-php-ext-install pdo pdo_pgsql &&
+#                   php /src/bin/console doctrine:fixtures:load"
 
 volumes:
     run:
