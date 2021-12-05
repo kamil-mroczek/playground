@@ -332,8 +332,14 @@ class ComposerStaticInit9d6322e9c337dcf4b791f379f6d7dd83
     );
 
     public static $classMap = array (
-        'App\\Controller\\ApiController' => __DIR__ . '/../..' . '/src/Controller/ApiController.php',
+        'App\\Controller\\CalculationsController' => __DIR__ . '/../..' . '/src/Controller/CalculationsController.php',
+        'App\\Controller\\ErrorController' => __DIR__ . '/../..' . '/src/Controller/ErrorController.php',
+        'App\\Controller\\HelloController' => __DIR__ . '/../..' . '/src/Controller/HelloController.php',
+        'App\\Controller\\QuotesController' => __DIR__ . '/../..' . '/src/Controller/QuotesController.php',
+        'App\\Controller\\TransactionsController' => __DIR__ . '/../..' . '/src/Controller/TransactionsController.php',
+        'App\\Entity\\Quote' => __DIR__ . '/../..' . '/src/Entity/Quote.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
+        'App\\Repository\\QuotesRepository' => __DIR__ . '/../..' . '/src/Repository/QuotesRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Doctrine\\Bundle\\DoctrineBundle\\Attribute\\AsEntityListener' => __DIR__ . '/..' . '/doctrine/doctrine-bundle/Attribute/AsEntityListener.php',

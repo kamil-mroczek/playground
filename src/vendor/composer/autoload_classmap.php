@@ -6,8 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controller\\ApiController' => $baseDir . '/src/Controller/ApiController.php',
+    'App\\Controller\\CalculationsController' => $baseDir . '/src/Controller/CalculationsController.php',
+    'App\\Controller\\ErrorController' => $baseDir . '/src/Controller/ErrorController.php',
+    'App\\Controller\\HelloController' => $baseDir . '/src/Controller/HelloController.php',
+    'App\\Controller\\QuotesController' => $baseDir . '/src/Controller/QuotesController.php',
+    'App\\Controller\\TransactionsController' => $baseDir . '/src/Controller/TransactionsController.php',
+    'App\\Entity\\Quote' => $baseDir . '/src/Entity/Quote.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
+    'App\\Repository\\QuotesRepository' => $baseDir . '/src/Repository/QuotesRepository.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Doctrine\\Bundle\\DoctrineBundle\\Attribute\\AsEntityListener' => $vendorDir . '/doctrine/doctrine-bundle/Attribute/AsEntityListener.php',
