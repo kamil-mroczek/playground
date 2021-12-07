@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '64e68c67fc4df4726c075435c8d77381642dc237',
+        'reference' => '7aaf564b748c5b31c7115d2289d7b4fbb8f19b4f',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '64e68c67fc4df4726c075435c8d77381642dc237',
+            'reference' => '7aaf564b748c5b31c7115d2289d7b4fbb8f19b4f',
             'dev_requirement' => false,
         ),
         'composer/package-versions-deprecated' => array(
@@ -200,12 +200,12 @@
             'dev_requirement' => false,
         ),
         'laminas/laminas-code' => array(
-            'pretty_version' => '4.4.3',
-            'version' => '4.4.3.0',
+            'pretty_version' => '4.5.0',
+            'version' => '4.5.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laminas/laminas-code',
             'aliases' => array(),
-            'reference' => 'bb324850d09dd437b6acb142c13e64fdc725b0e1',
+            'reference' => 'c99ef8e5629c33bfaa3a8f1df773e916af564cd6',
             'dev_requirement' => false,
         ),
         'nikic/php-parser' => array(

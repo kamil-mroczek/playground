@@ -21,17 +21,16 @@ services:
             - "./fpm/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-docker.conf"
             - "run:/run"
         depends_on:
-#            - composer
+            - composer
             - database
 
-# @todo Some packages not compatible with PHP 8.1
-#    composer:
-#        container_name: composer
-#        image: composer:2.1
-#        volumes:
-#            - ../src:/src
-#        working_dir: /src
-#        command: install
+    composer:
+        container_name: composer
+        image: composer:2.1
+        volumes:
+            - ../src:/src
+        working_dir: /src
+        command: install
 
     database:
         container_name: database
