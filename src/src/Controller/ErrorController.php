@@ -13,7 +13,12 @@ class ErrorController extends AbstractController
     {
         return $this->json([
             'message' => $exception->getMessage(),
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'code' => $exception->getCode(),
             'request' => $request,
+            'php_version' => phpversion(),
+            'trace' => $exception->getTraceAsString(),
         ]);
     }
 }

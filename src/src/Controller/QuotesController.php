@@ -15,7 +15,7 @@ class QuotesController extends AbstractController
         return $this->json([]);
     }
 
-    #[Route('/quotes/{currencyPair}', methods: 'GET')]
+    #[Route('/quotes/{currencyPair<[A-Z]{6}>}', methods: 'GET')]
     public function getQuoteForCurrencyPair(): Response
     {
         return $this->json([]);
