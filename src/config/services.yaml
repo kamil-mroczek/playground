@@ -16,6 +16,7 @@ services:
     App\:
         resource: '../src/'
         exclude:
+            - '../src/CurrencyExchange/'
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
@@ -23,3 +24,23 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Common\Infrastructure\Processor\RequestCommandProcessor:
+        class: App\Common\Infrastructure\Processor\RequestCommandProcessor
+        calls:
+            - [ 'register', [ 'App\CurrencyExchange\Application\Command\GetAllQuotes', '@handler.GetAllQuotes' ] ]
+            - [ 'register', [ 'App\CurrencyExchange\Application\Command\GetQuote', '@handler.GetQuote' ] ]
+
+    handler.GetAllQuotes:
+        class: 'App\CurrencyExchange\Application\Handler\GetAllQuotes'
+#        arguments: ['@repository.Quotes']
+        arguments: ['@doctrine.orm.entity_manager']
+
+    handler.GetQuote:
+        class: 'App\CurrencyExchange\Application\Handler\GetQuote'
+        #        arguments: ['@repository.Quotes']
+        arguments: ['@doctrine.orm.entity_manager']
+
+    repository.Quotes:
+        class: 'App\CurrencyExchange\Infrastructure\Repository\Quotes'
+        arguments: ['@doctrine.orm.entity_manager']
