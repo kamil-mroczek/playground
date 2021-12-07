@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use App\Exception\WrongCurrencyPair;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="quotes")
  */
 class Quote
 {
@@ -14,17 +17,27 @@ class Quote
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string", length=6)
      */
-    protected $currencyPair;
+    public $currencyPair;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=8)
      */
-    protected $rate;
+    public $rate;
+
+    /**
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     */
+    public $time;
+
+    public function __construct()
+    {
+        $this->time = new DateTime();
+    }
 
     /**
      * @return mixed
@@ -42,20 +55,26 @@ class Quote
         $this->rate = $rate;
     }
 
+
     /**
-     * @return mixed
+     * @return CurrencyPair
+     * @throws \App\Exception\WrongCurrencyPair
      */
-    public function getCurrencyPair()
+    public function getCurrencyPair(): CurrencyPair
     {
-        return $this->currencyPair;
+        if (!empty($this->currencyPair)) {
+            return CurrencyPair::from($this->currencyPair);
+        } else {
+            throw new WrongCurrencyPair();
+        }
     }
 
     /**
-     * @param mixed $currencyPair
+     * @param CurrencyPair $currencyPair
      */
-    public function setCurrencyPair($currencyPair): void
+    public function setCurrencyPair(CurrencyPair $currencyPair): void
     {
-        $this->currencyPair = $currencyPair;
+        $this->currencyPair = (string)$currencyPair;
     }
 
     /**
@@ -67,10 +86,26 @@ class Quote
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
-    public function setId($id): void
+    public function setId(int $id): int
     {
-        $this->id = $id;
+        $this->id = (int)$id;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getTime(): DateTime
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param DateTime $time
+     */
+    public function setTime(DateTime $time): void
+    {
+        $this->time = $time;
     }
 }

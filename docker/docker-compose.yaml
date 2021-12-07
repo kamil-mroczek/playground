@@ -64,7 +64,7 @@ services:
             - composer
             - database
         command: >
-            sh -c "php /src/bin/console doctrine:schema:update --complete --force && 
+            sh -c "php /src/bin/console doctrine:schema:update --complete --force --dump-sql && 
             php /src/bin/console doctrine:fixtures:load"
 
 volumes:

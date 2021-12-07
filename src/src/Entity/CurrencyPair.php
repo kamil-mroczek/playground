@@ -27,8 +27,8 @@ class CurrencyPair
             throw new WrongCurrencyPair();
         }
 
-        $this->$baseCurrency = $baseCurrency;
-        $this->$quoteCurrency = $quoteCurrency;
+        $this->baseCurrency = $baseCurrency;
+        $this->quoteCurrency = $quoteCurrency;
     }
 
     /**
@@ -52,7 +52,7 @@ class CurrencyPair
      */
     public function __toString(): string
     {
-        return $this->getBaseCurrency() . '/' . $this->getQuoteCurrency();
+        return $this->getBaseCurrency() . $this->getQuoteCurrency();
     }
 
     /**

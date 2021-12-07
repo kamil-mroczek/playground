@@ -8,7 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ErrorController extends AbstractController
 {
-
+    /**
+     * @param Request $request
+     * @param \Throwable $exception
+     * @return Response
+     */
     public function show(Request $request, \Throwable $exception): Response
     {
         return $this->json([
@@ -18,7 +22,7 @@ class ErrorController extends AbstractController
             'code' => $exception->getCode(),
             'request' => $request,
             'php_version' => phpversion(),
-            'trace' => $exception->getTraceAsString(),
+            'trace' => $exception->getTrace(),
         ]);
     }
 }
