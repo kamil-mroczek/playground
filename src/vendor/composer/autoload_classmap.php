@@ -23,7 +23,6 @@ return array(
     'App\\Enum\\TransactionDirection' => $baseDir . '/src/Enum/TransactionDirection.php',
     'App\\Exception\\WrongCurrencyPair' => $baseDir . '/src/Exception/WrongCurrencyPair.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
-    'App\\Manager\\QuotesManager' => $baseDir . '/src/Manager/QuotesManager.php',
     'App\\Repository\\QuotesRepository' => $baseDir . '/src/Repository/QuotesRepository.php',
     'App\\ValueObject\\Amount' => $baseDir . '/src/ValueObject/Amount.php',
     'App\\ValueObject\\Rate' => $baseDir . '/src/ValueObject/Rate.php',

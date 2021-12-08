@@ -360,7 +360,6 @@ class ComposerStaticInit9d6322e9c337dcf4b791f379f6d7dd83
         'App\\Enum\\TransactionDirection' => __DIR__ . '/../..' . '/src/Enum/TransactionDirection.php',
         'App\\Exception\\WrongCurrencyPair' => __DIR__ . '/../..' . '/src/Exception/WrongCurrencyPair.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
-        'App\\Manager\\QuotesManager' => __DIR__ . '/../..' . '/src/Manager/QuotesManager.php',
         'App\\Repository\\QuotesRepository' => __DIR__ . '/../..' . '/src/Repository/QuotesRepository.php',
         'App\\ValueObject\\Amount' => __DIR__ . '/../..' . '/src/ValueObject/Amount.php',
         'App\\ValueObject\\Rate' => __DIR__ . '/../..' . '/src/ValueObject/Rate.php',
